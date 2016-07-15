@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2C08F7941C7F6FD400CF2E85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08F7931C7F6FD400CF2E85 /* AppDelegate.swift */; };
-		2C08F7961C7F6FD400CF2E85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08F7951C7F6FD400CF2E85 /* ViewController.swift */; };
 		2C08F7991C7F6FD400CF2E85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C08F7971C7F6FD400CF2E85 /* Main.storyboard */; };
 		2C08F79B1C7F6FD400CF2E85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C08F79A1C7F6FD400CF2E85 /* Assets.xcassets */; };
 		2C08F79E1C7F6FD400CF2E85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C08F79C1C7F6FD400CF2E85 /* LaunchScreen.storyboard */; };
 		2C08F7A91C7F6FD400CF2E85 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08F7A81C7F6FD400CF2E85 /* CalculatorTests.swift */; };
 		2C08F7B41C7F6FD400CF2E85 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08F7B31C7F6FD400CF2E85 /* CalculatorUITests.swift */; };
+		2CD05AA41D32E41B00397500 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD05AA31D32E41B00397500 /* CalculatorBrain.swift */; };
+		2CF282931C8E914F00F748B8 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF282921C8E914F00F748B8 /* CalculatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		2C08F7901C7F6FD400CF2E85 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08F7931C7F6FD400CF2E85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C08F7951C7F6FD400CF2E85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C08F7981C7F6FD400CF2E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C08F79A1C7F6FD400CF2E85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C08F79D1C7F6FD400CF2E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		2C08F7AF1C7F6FD400CF2E85 /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08F7B31C7F6FD400CF2E85 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		2C08F7B51C7F6FD400CF2E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CD05AA31D32E41B00397500 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
+		2CF282921C8E914F00F748B8 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +99,10 @@
 		2C08F7921C7F6FD400CF2E85 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				2C08F7931C7F6FD400CF2E85 /* AppDelegate.swift */,
-				2C08F7951C7F6FD400CF2E85 /* ViewController.swift */,
+				2CF282921C8E914F00F748B8 /* CalculatorViewController.swift */,
+				2CD05AA31D32E41B00397500 /* CalculatorBrain.swift */,
 				2C08F7971C7F6FD400CF2E85 /* Main.storyboard */,
-				2C08F79A1C7F6FD400CF2E85 /* Assets.xcassets */,
-				2C08F79C1C7F6FD400CF2E85 /* LaunchScreen.storyboard */,
-				2C08F79F1C7F6FD400CF2E85 /* Info.plist */,
+				2C08F7C11C7F71B600CF2E85 /* Supporting Files */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -123,6 +123,17 @@
 				2C08F7B51C7F6FD400CF2E85 /* Info.plist */,
 			);
 			path = CalculatorUITests;
+			sourceTree = "<group>";
+		};
+		2C08F7C11C7F71B600CF2E85 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C08F79A1C7F6FD400CF2E85 /* Assets.xcassets */,
+				2C08F79F1C7F6FD400CF2E85 /* Info.plist */,
+				2C08F79C1C7F6FD400CF2E85 /* LaunchScreen.storyboard */,
+				2C08F7931C7F6FD400CF2E85 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C08F7961C7F6FD400CF2E85 /* ViewController.swift in Sources */,
+				2CD05AA41D32E41B00397500 /* CalculatorBrain.swift in Sources */,
+				2CF282931C8E914F00F748B8 /* CalculatorViewController.swift in Sources */,
 				2C08F7941C7F6FD400CF2E85 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +496,7 @@
 				2C08F7BA1C7F6FD400CF2E85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C08F7BB1C7F6FD400CF2E85 /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				2C08F7BD1C7F6FD400CF2E85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C08F7BE1C7F6FD400CF2E85 /* Build configuration list for PBXNativeTarget "CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				2C08F7C01C7F6FD400CF2E85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

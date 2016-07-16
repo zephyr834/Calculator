@@ -42,6 +42,8 @@ class CalculatorViewController: UIViewController {
             }
             if let result = brain.performOperation(operation) {
                 displayValue = result
+                history.text = history.text!.stringByReplacingOccurrencesOfString("=", withString: "")
+                history.text = history.text! + operation + " ="
             }
             else {
                 displayValue = 0 //have this work with nil aka optionals
@@ -53,9 +55,9 @@ class CalculatorViewController: UIViewController {
         if userIsTypingANumber {
             if let result = brain.pushOperand(displayValue) {
                 displayValue = result
+                history.text = history.text! + display.text! + " "
             }
         }
-        
         userIsTypingANumber = false
     }
 
@@ -74,6 +76,7 @@ class CalculatorViewController: UIViewController {
         userIsTypingANumber = false
         decimalPlaced = false
         display.text = "0"
+        history.text?.removeAll()
         brain.clearOps()
         
     }

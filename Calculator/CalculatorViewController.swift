@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalculatorViewController.swift
 //  Calculator
 //
 //  Created by Cory Eighan on 2/25/16.
@@ -11,6 +11,7 @@ import UIKit
 class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var history: UILabel!
     
     var userIsTypingANumber = false
     var brain = CalculatorBrain()
@@ -30,28 +31,32 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
-        if userIsTypingANumber {
-            enter()
+        let operation = sender.currentTitle!
+        
+        if operation == "+/-" && userIsTypingANumber {
+            displayValue = -displayValue
         }
-        if let operation = sender.currentTitle {
+        else {
+            if userIsTypingANumber {
+                enter()
+            }
             if let result = brain.performOperation(operation) {
                 displayValue = result
             }
             else {
-                displayValue = 0
+                displayValue = 0 //have this work with nil aka optionals
             }
         }
-
     }
 
     @IBAction func enter() {
+        if userIsTypingANumber {
+            if let result = brain.pushOperand(displayValue) {
+                displayValue = result
+            }
+        }
+        
         userIsTypingANumber = false
-        if let result = brain.pushOperand(displayValue) {
-            displayValue = result
-        }
-        else {
-            displayValue = 0
-        }
     }
 
     @IBAction func decimalPoint(sender: UIButton) {
@@ -61,10 +66,15 @@ class CalculatorViewController: UIViewController {
         decimalPlaced = true
     }
     
-    @IBAction func clear(sender: AnyObject) {
+    @IBAction func backspace() {
+        
+    }
+    
+    @IBAction func clear() {
         userIsTypingANumber = false
         decimalPlaced = false
         display.text = "0"
+        brain.clearOps()
         
     }
     

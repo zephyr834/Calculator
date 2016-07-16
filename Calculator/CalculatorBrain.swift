@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Darwin
 
 class CalculatorBrain {
     
@@ -39,13 +40,18 @@ class CalculatorBrain {
         func learnOp (op: Op) {
             knownOps[op.description] = op
         }
-        learnOp(Op.BinaryOperation("✖️", *))
+        learnOp(Op.BinaryOperation("+", +))
+        learnOp(Op.BinaryOperation("×", *))
         learnOp(Op.BinaryOperation("÷") { $1 / $0 })
-        learnOp(Op.BinaryOperation("➖") { $1 - $0 })
-        learnOp(Op.BinaryOperation("➕", +))
-        learnOp(Op.UnaryOperation("π") { $0 * M_1_PI })
+        learnOp(Op.BinaryOperation("-") { $1 - $0 })
+        learnOp(Op.BinaryOperation("⁒") { $1 % $0 })
+
+        learnOp(Op.UnaryOperation("π") { $0 * M_PI })
         learnOp(Op.UnaryOperation("sin") { sin($0) })
         learnOp(Op.UnaryOperation("cos") { cos($0) })
+        learnOp(Op.UnaryOperation("√") { sqrt($0) })
+        learnOp(Op.UnaryOperation("+/-") { -1 * $0 })
+
     }
     
     private func evaluate(ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
@@ -94,6 +100,11 @@ class CalculatorBrain {
         }
         
         return evaluate()
+    }
+    
+    func clearOps() {
+        opStack.removeAll()
+        print("\(opStack)")
     }
     
 }
